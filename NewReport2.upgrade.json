@@ -1,0 +1,472 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 8.0"
+  },
+  "analysisStartTime": "2025-02-20T19:21:12.7461311Z",
+  "analysisEndTime": "2025-02-20T19:21:13.5566276Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 2,
+      "incidents": 15,
+      "effort": 15
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 0,
+        "Potential": 14,
+        "Information": 0
+      },
+      "category": {
+        "Project": 1,
+        "Api": 14
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "ConsoleApp1\\ConsoleApp1.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 15,
+      "ruleInstances": [
+        {
+          "incidentId": "f18c0f8b-9b5c-4843-acdb-bde866e61131",
+          "ruleId": "Project.0002",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current: net6.0\nNew: net8.0",
+              "protected": "Current: net6.0\nNew: net8.0"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\ConsoleApp1.csproj",
+            "snippet": "Current: net6.0\nNew: net8.0",
+            "protectedSnippet": "Current: net6.0\nNew: net8.0"
+          }
+        },
+        {
+          "incidentId": "b68ec009-a310-420b-8771-e4b858672def",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022cnt\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\FreeDate.cs",
+            "snippet": "JsonProperty(\u0022cnt\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "ed2a42b6-deee-425d-b3d3-f4db480751b4",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022chtime\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\Ticket.cs",
+            "snippet": "JsonProperty(\u0022chtime\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "14c5f071-76d8-470e-89db-d8263e2c02d7",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return JsonConvert.DeserializeObject\u003CGovTicketResponse\u003E(strResponse);",
+              "protected": "M:Newtonsoft.Json.JsonConvert.DeserializeObject\u0060\u00601(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Services\\OfficeGovClient.cs",
+            "snippet": "return JsonConvert.DeserializeObject\u003CGovTicketResponse\u003E(strResponse);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.DeserializeObject\u0060\u00601(System.String)",
+            "label": "M:Newtonsoft.Json.JsonConvert.DeserializeObject\u0060\u00601(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.deserializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 63,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "dbd8f174-328c-4123-83a2-ebc225f3a28a",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022chtime\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\Ticket.cs",
+            "snippet": "JsonProperty(\u0022chtime\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "2af79e27-c426-42be-9c0d-028c3ae98316",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022trows\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022trows\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 9,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "f253705b-8a92-4ecc-a0e8-4fee8074d089",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022cnt\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\FreeDate.cs",
+            "snippet": "JsonProperty(\u0022cnt\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "081a2206-7dbe-473b-80d0-2eabf1480e45",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022chdate\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\FreeDate.cs",
+            "snippet": "JsonProperty(\u0022chdate\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 9,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "cd3c4444-2080-4235-a583-2eace2b8fcbc",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "return JsonConvert.DeserializeObject\u003CGovTicketResponse\u003E(strResponse);",
+              "protected": "T:Newtonsoft.Json.JsonConvert"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Services\\OfficeGovClient.cs",
+            "snippet": "return JsonConvert.DeserializeObject\u003CGovTicketResponse\u003E(strResponse);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 63,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fd2fa4c0-e265-4f82-a0b4-8b0f32a95d4d",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022freedatesforoffice\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022freedatesforoffice\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "7d82276a-a5bf-48cb-9199-85b54d8be2c3",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022chdate\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\FreeDate.cs",
+            "snippet": "JsonProperty(\u0022chdate\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 9,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "0d978ad6-bcc7-49fc-9d1e-894bad1e64ef",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022rows\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022rows\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "b3feec94-2ae3-4d76-ba24-7833b9d541d8",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022rows\u0022)",
+              "protected": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022rows\u0022)",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "label": "M:Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 6,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "14ba9b29-8db7-4c14-9303-566ccf1dd51a",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022trows\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022trows\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 9,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "a1bee73c-aa23-46ce-929c-cd7e66902051",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ConsoleApp1\\ConsoleApp1.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "JsonProperty(\u0022freedatesforoffice\u0022)",
+              "protected": "T:Newtonsoft.Json.JsonPropertyAttribute"
+            },
+            "kind": "File",
+            "path": "ConsoleApp1\\Dto\\ApiResponce.cs",
+            "snippet": "JsonProperty(\u0022freedatesforoffice\u0022)",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "label": "T:Newtonsoft.Json.JsonPropertyAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonpropertyattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 5
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in moderrn .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

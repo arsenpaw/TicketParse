@@ -1,0 +1,11 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+/.vs
+/.idea
+ConsoleApp1/appsettings.Development.json
+ConsoleApp1/Logs/log.txt
+ConsoleApp1/appsettings.json
+ConsoleApp1/storage.db
