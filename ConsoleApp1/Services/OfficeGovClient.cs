@@ -32,7 +32,8 @@ public class OfficeGovClient
         {
             throw new InvalidCredentialException($"Your credentials is outdated.");
         }
-        return JsonConvert.DeserializeObject<GovTicketResponse>(strResponse);
+
+        return JsonConvert.DeserializeObject<GovTicketResponse>(strResponse)!;
     }
     private async Task<HttpResponseMessage> _getTicket(Dictionary<string, string> formData, CancellationToken cs)
     {

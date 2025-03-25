@@ -27,7 +27,7 @@ builder.Services.AddHealthChecks()
         .AddCheck<TicketFinderTicketFinderHostedService>("CheckHealthAsync");
 builder.Services.AddCommands();
 builder.Services.AddSingleton<TelegramBotService>();
-builder.Services.AddSingleton<OfficeGovClient>();
+builder.Services.AddScoped<OfficeGovClient>();
 builder.Services.AddSingleton<CriticalExceptionSink>();
 builder.Services.AddSingleton<AppSettingRuntimeChangerService>();
 builder.Services.AddHostedService<TicketFinderTicketFinderHostedService>();
@@ -66,7 +66,7 @@ builder.Services.AddSerilog((context, configuration) =>
 {
     using var serviceProvider = builder.Services.BuildServiceProvider();
     var criticalSink = serviceProvider.GetRequiredService<CriticalExceptionSink>();
-
+    
     configuration
         .MinimumLevel.Information()
         .WriteTo.Console()

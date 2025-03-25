@@ -1,3 +1,4 @@
+using ConsoleApp1.Keyborads;
 using ConsoleApp1.Services;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -20,6 +21,7 @@ public class RsfTokenCommand: IBotCommand
         await botClient.SendMessage(
             chatId: message.Chat.Id,
             text: "Token was set.\nIf bot fails check cookie.", 
+            replyMarkup: ReplyKeyboards.RichHomeKeyboard,
             cancellationToken: cancellationToken);
     }
 

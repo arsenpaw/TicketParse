@@ -1,3 +1,4 @@
+using ConsoleApp1.Keyborads;
 using ConsoleApp1.Services;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -27,6 +28,7 @@ public class CookieCommand : IBotCommand
         await botClient.SendMessage(
             chatId: message.Chat.Id,
             text: "Cookie was set.\nIf bot fails check token.", 
+            replyMarkup: ReplyKeyboards.RichHomeKeyboard,
         cancellationToken: cancellationToken);
 
     }
