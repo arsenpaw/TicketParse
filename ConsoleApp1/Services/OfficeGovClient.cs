@@ -20,7 +20,7 @@ public class OfficeGovClient
     }
     /// <exception cref="ExternalException"></exception>
     /// <exception cref="InvalidCredentialException"></exception>
-    public async Task<GovTicketResponse> GetTicket(Dictionary<string,string> formData, CancellationToken cs)
+    public async Task<List<ApiResponce>> GetTicket(Dictionary<string,string> formData, CancellationToken cs)
     {
         var fullResponse = await _getTicket(formData, cs);
         if (fullResponse.StatusCode >= HttpStatusCode.InternalServerError)
@@ -33,7 +33,7 @@ public class OfficeGovClient
             throw new InvalidCredentialException($"Your credentials is outdated.");
         }
 
-        return JsonConvert.DeserializeObject<GovTicketResponse>(strResponse)!;
+        return new List<ApiResponce>();
     }
     private async Task<HttpResponseMessage> _getTicket(Dictionary<string, string> formData, CancellationToken cs)
     {

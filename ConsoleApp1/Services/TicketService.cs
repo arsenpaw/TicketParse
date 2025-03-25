@@ -15,15 +15,16 @@ public class TicketService
         _client = client;
     }
 
-    public async Task<GovTicketResponse> GetTicketWithDelay(DateTime searchDate, int officeId, CancellationToken stoppingToken)
+    public async Task<List<Ticket>> GetTicketWithDelay(DateTime searchDate, CancellationToken stoppingToken)
     {
         var formData = new Dictionary<string, string>
         {
-            { "office_id", officeId.ToString()},
-            { "date_of_admission", searchDate.ToString(GovApiConstants.DateFormat)},
-            { "question_id", "55" }
+            { "date", searchDate.ToString(GovApiConstants.DateFormat)},
+            { "serviceId:", "49" }
         };
         await Task.Delay(TimeSpan.FromMilliseconds(800), stoppingToken);
-        return await _client.GetTicket(formData, stoppingToken);
+        var responce =  await _client.GetTicket(formData, stoppingToken);
+        return responce.Select(x => 
+            new Ticket{ Time = searchDate, Location = $"{x.SrvCenterName} на {x.Street}", OfficeId = x.SrvCenterId}).ToList();
     }
 }

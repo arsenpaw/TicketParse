@@ -4,7 +4,10 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.Security.Authentication;
+using ConsoleApp1.Config;
 using ConsoleApp1.Dto;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Polly;
 using Polly.CircuitBreaker;
 using Polly.Retry;
@@ -16,6 +19,7 @@ namespace ConsoleApp1.HostedServices
         private readonly TicketService _tickerService;
         private readonly AppSettingRuntimeChangerService _appSettingRuntimeChangerService;
         private readonly TelegramBotService _botClient;
+        private readonly IServiceProvider _serviceProvider;
 
         private readonly AsyncCircuitBreakerPolicy policy = Policy
             .Handle<InvalidCredentialException>()
@@ -37,11 +41,13 @@ namespace ConsoleApp1.HostedServices
             );
 
 
-        protected BaseTicketFinderHostedService(TicketService officeGovClient, AppSettingRuntimeChangerService appSettingRuntimeChangerService, TelegramBotService botClient)
+        protected BaseTicketFinderHostedService(TicketService officeGovClient, AppSettingRuntimeChangerService appSettingRuntimeChangerService, 
+            TelegramBotService botClient, IServiceProvider serviceProvider)
         {
             _tickerService = officeGovClient;
             _appSettingRuntimeChangerService = appSettingRuntimeChangerService;
             _botClient = botClient;
+            _serviceProvider = serviceProvider;
         }
         
         protected sealed override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -58,8 +64,12 @@ namespace ConsoleApp1.HostedServices
                     if (policy.CircuitState == CircuitState.Closed)
                     {
                         await policy.ExecuteAsync(async () =>
-                        {
-                            await ExecuteInLoopAsync(stoppingToken);
+                        {       
+                            using var scope = _serviceProvider.CreateScope();
+                            var _applicationRules = scope.ServiceProvider.GetRequiredService<IOptionsSnapshot<ApplicationRules>>().Value;
+                            var startSearchingDate = _applicationRules.StartSearchingDate ?? DateTime.Now;
+                            _applicationRules.StartSearchingDate = startSearchingDate;
+                            await ExecuteInLoopAsync(stoppingToken, _applicationRules ?? new ApplicationRules());
                         });
                     }
                     await Task.Delay(1000, stoppingToken);
@@ -75,7 +85,7 @@ namespace ConsoleApp1.HostedServices
             }
         }
 
-        public virtual async Task ExecuteInLoopAsync(CancellationToken stoppingToken)
+        public virtual async Task ExecuteInLoopAsync(CancellationToken stoppingToken, ApplicationRules startSearchingDate)
         {
         }
 
@@ -89,7 +99,7 @@ namespace ConsoleApp1.HostedServices
         {
             try
             {
-                await _tickerService.GetTicketWithDelay(DateTime.Now, 61, cancellationToken);
+                //await _tickerService.GetTicketWithDelay(DateTime.Now, 61, cancellationToken);
                 return HealthCheckResult.Healthy("Service is running.");
             }
             catch (InvalidCredentialException)
