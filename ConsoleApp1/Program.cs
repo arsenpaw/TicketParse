@@ -40,7 +40,7 @@ builder.Services.AddHttpClient<OfficeGovClient>(client =>
     using var serviceProvider = builder.Services.BuildServiceProvider();
     var appCredentials = serviceProvider.GetRequiredService<IOptionsSnapshot<ApplicationCredentials>>().Value;
 
-    client.BaseAddress = new Uri("https://eq.hsc.gov.ua/");
+    client.BaseAddress = new Uri("https://eqn.hsc.gov.ua/");
     client.DefaultRequestHeaders.UserAgent.ParseAdd(appCredentials.UserAgent);
     client.DefaultRequestHeaders.Add("x-csrf-token", appCredentials.XCsrfToken);
     client.DefaultRequestHeaders.Add("cookie", appCredentials.Cookie);

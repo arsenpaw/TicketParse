@@ -36,14 +36,13 @@ public class TicketFinderTicketFinderHostedService : BaseTicketFinderHostedServi
         _serviceProvider = serviceProvider;
 
     }
-    public override async Task ExecuteInLoopAsync(CancellationToken stoppingToken, ApplicationRules _applicationRules)
+    public override async Task ExecuteInLoopAsync(CancellationToken stoppingToken, ApplicationRules _applicationRules, IServiceScope scope)
     {
        var  startSearchingDate = _applicationRules.StartSearchingDate ?? DateTime.Now;
             for (int i = 0; i < _applicationRules.DaysToSearch; i++)
             {
                 startSearchingDate = startSearchingDate.AddDays(1);
                 //to get new instance of service
-                using var scope = _serviceProvider.CreateScope();
                 var tickerService = scope.ServiceProvider.GetRequiredService<TicketService>();
                 var ticketList = await retryPolicy.ExecuteAsync(async () => await tickerService.GetTicketWithDelay(startSearchingDate, stoppingToken));
                 var targetTicketList = ticketList.Where(x => _applicationRules.OfficeIds.Contains(x.OfficeId)).ToList();

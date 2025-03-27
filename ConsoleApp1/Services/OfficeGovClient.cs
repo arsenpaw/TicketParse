@@ -20,9 +20,9 @@ public class OfficeGovClient
     }
     /// <exception cref="ExternalException"></exception>
     /// <exception cref="InvalidCredentialException"></exception>
-    public async Task<List<ApiResponce>> GetTicket(Dictionary<string,string> formData, CancellationToken cs)
+    public async Task<List<ApiResponce>> GetTicket(DateTime date, CancellationToken cs)
     {
-        var fullResponse = await _getTicket(formData, cs);
+        var fullResponse = await _getTicket(date, cs);
         if (fullResponse.StatusCode >= HttpStatusCode.InternalServerError)
         {
             throw new ExternalException($"Remote server is not working. StatusCode: {fullResponse.StatusCode}");
@@ -32,12 +32,10 @@ public class OfficeGovClient
         {
             throw new InvalidCredentialException($"Your credentials is outdated.");
         }
-
-        return new List<ApiResponce>();
+        return JsonConvert.DeserializeObject<List<ApiResponce>>(strResponse)!;
     }
-    private async Task<HttpResponseMessage> _getTicket(Dictionary<string, string> formData, CancellationToken cs)
+    private async Task<HttpResponseMessage> _getTicket(DateTime dateTime, CancellationToken cs)
     {
-        var content = new FormUrlEncodedContent(formData);
-        return await _client.PostAsync("/site/freetimes", content, cs);
+        return await _client.GetAsync($"/api/v2/departments?serviceId=49&date={dateTime.ToString("yyyy-MM-dd")}", cs);
     }
 }

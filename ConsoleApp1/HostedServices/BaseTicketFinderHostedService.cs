@@ -5,12 +5,10 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using System.Security.Authentication;
 using ConsoleApp1.Config;
-using ConsoleApp1.Dto;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Polly;
 using Polly.CircuitBreaker;
-using Polly.Retry;
 
 namespace ConsoleApp1.HostedServices
 {
@@ -69,7 +67,7 @@ namespace ConsoleApp1.HostedServices
                             var _applicationRules = scope.ServiceProvider.GetRequiredService<IOptionsSnapshot<ApplicationRules>>().Value;
                             var startSearchingDate = _applicationRules.StartSearchingDate ?? DateTime.Now;
                             _applicationRules.StartSearchingDate = startSearchingDate;
-                            await ExecuteInLoopAsync(stoppingToken, _applicationRules ?? new ApplicationRules());
+                            await ExecuteInLoopAsync(stoppingToken, _applicationRules ?? new ApplicationRules(), scope);
                         });
                     }
                     await Task.Delay(1000, stoppingToken);
@@ -85,7 +83,7 @@ namespace ConsoleApp1.HostedServices
             }
         }
 
-        public virtual async Task ExecuteInLoopAsync(CancellationToken stoppingToken, ApplicationRules startSearchingDate)
+        public virtual async Task ExecuteInLoopAsync(CancellationToken stoppingToken, ApplicationRules startSearchingDate, IServiceScope scope)
         {
         }
 
@@ -99,7 +97,7 @@ namespace ConsoleApp1.HostedServices
         {
             try
             {
-                //await _tickerService.GetTicketWithDelay(DateTime.Now, 61, cancellationToken);
+                await _tickerService.GetTicketWithDelay(DateTime.Now, cancellationToken);
                 return HealthCheckResult.Healthy("Service is running.");
             }
             catch (InvalidCredentialException)

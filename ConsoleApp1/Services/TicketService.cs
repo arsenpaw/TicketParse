@@ -23,7 +23,7 @@ public class TicketService
             { "serviceId:", "49" }
         };
         await Task.Delay(TimeSpan.FromMilliseconds(800), stoppingToken);
-        var responce =  await _client.GetTicket(formData, stoppingToken);
+        var responce =  await _client.GetTicket(searchDate, stoppingToken);
         return responce.Select(x => 
             new Ticket{ Time = searchDate, Location = $"{x.SrvCenterName} на {x.Street}", OfficeId = x.SrvCenterId}).ToList();
     }

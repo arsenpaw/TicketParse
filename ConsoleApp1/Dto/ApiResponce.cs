@@ -10,11 +10,11 @@ namespace ConsoleApp1.Dto;
         public string Building { get; set; }
         public int CityId { get; set; }
         public string CityName { get; set; }
-        public int CommunityId { get; set; }
+        public int? CommunityId { get; set; }
         public string CommunityName { get; set; }
         public int CountryId { get; set; }
         public string CountryName { get; set; }
-        public int DistrictId { get; set; }
+        public int? DistrictId { get; set; }
         public string DistrictName { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
